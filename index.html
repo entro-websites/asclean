@@ -44,7 +44,7 @@ ul{list-style:none}
 
 /* ---------- tipografija ---------- */
 h1,h2,h3,h4{color:var(--ink);font-weight:800;letter-spacing:-.02em;line-height:1.12}
-h1{font-size:56px;line-height:1.08}
+h1{font-size:62px;line-height:1.08}
 h2{font-size:40px}
 h3{font-size:20px;font-weight:700;letter-spacing:-.01em;line-height:1.28}
 h4{font-size:16px;font-weight:700}
@@ -289,12 +289,26 @@ section{padding-top:96px;padding-bottom:96px}
 .cen-card.top .cen-price{background:var(--white);border-color:var(--white)}
 
 /* ---------- koraci ---------- */
-.step{display:flex;flex-direction:column;gap:16px}
-.step .n{
-  width:48px;height:48px;border-radius:var(--r-md);background:var(--blue-600);color:var(--white);
-  display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;flex:none;
+.kako{display:grid;grid-template-columns:.9fr 1.5fr;gap:64px;align-items:start}
+.kako-copy{display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.kako-copy p{font-size:16px}
+.kako-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.kako-card{
+  background:var(--mist);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding-top:32px;padding-bottom:32px;padding-left:32px;padding-right:32px;
+  display:flex;flex-direction:column;gap:20px;min-height:280px;
+  transition:transform .2s ease,box-shadow .2s ease;
 }
-.step p{font-size:16px}
+.kako-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+.kako-card svg{width:40px;height:40px;color:var(--blue-600);flex:none}
+.kako-card p{font-size:16px;margin-top:auto}
+.kako-card hr{border:0;border-top:1px solid var(--line);width:100%}
+.kako-card h3{display:flex;align-items:baseline;gap:12px;font-size:20px}
+.kako-card h3 i{font-style:normal;font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--blue-600)}
+.kako-card.top{background:var(--blue-600);border-color:var(--blue-600)}
+.kako-card.top svg,.kako-card.top h3,.kako-card.top h3 i{color:var(--white)}
+.kako-card.top p{color:var(--blue-100)}
+.kako-card.top hr{border-top-color:rgba(255,255,255,.3)}
 
 /* ---------- o nama ---------- */
 .about{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -306,11 +320,16 @@ section{padding-top:96px;padding-bottom:96px}
 .stat span{font-size:12px;color:#68849a}
 
 /* ---------- tamni CTA ---------- */
-.cta-dark{background:var(--blue-900);position:relative;overflow:hidden}
-.cta-dark::before{content:"";position:absolute;top:-200px;left:50%;width:720px;height:720px;transform:translateX(-50%);background:var(--glow);pointer-events:none}
-.cta-dark .container{position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;gap:24px;max-width:760px}
-.cta-dark h2{color:var(--white)}
-.cta-dark p{color:var(--blue-100);font-size:20px}
+.cta-dark{background:var(--white)}
+.cta-dark .container{
+  position:relative;overflow:hidden;background:var(--blue-900);border-radius:var(--r-xl);
+  padding-top:64px;padding-bottom:64px;padding-left:64px;padding-right:64px;
+  text-align:center;display:flex;flex-direction:column;align-items:center;gap:24px;
+}
+.cta-dark .container::before{content:"";position:absolute;top:-200px;left:50%;width:720px;height:720px;transform:translateX(-50%);background:var(--glow);pointer-events:none}
+.cta-dark .eyebrow,.cta-dark h2,.cta-dark p,.cta-dark .btn{position:relative}
+.cta-dark h2{color:var(--white);font-size:46px;max-width:70%}
+.cta-dark p{color:var(--blue-100);font-size:20px;max-width:70%}
 
 /* ---------- kontakt ---------- */
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
@@ -344,11 +363,13 @@ section{padding-top:96px;padding-bottom:96px}
 @media (max-width:1100px){
   h1{font-size:44px}
   h2{font-size:32px}
+  .cta-dark h2{font-size:36px}
   .hero .container,.about,.contact{grid-template-columns:1fr;gap:48px}
   .hero-media img,.about-media img{height:400px}
   .hero-badge{left:24px}
   .grid-3{grid-template-columns:repeat(2,1fr)}
   .cen-grid{grid-template-columns:1fr}
+  .kako{grid-template-columns:1fr;gap:40px}
   .cen-how{order:2}
   .usl{grid-template-columns:1fr;gap:32px}
   .usl-media{height:280px}
@@ -371,7 +392,11 @@ section{padding-top:96px;padding-bottom:96px}
   .pain-tag{font-size:16px;padding-left:20px;padding-right:20px}
   .pain-wm{width:200px;height:200px;right:-40px;top:auto;bottom:-32px}
   .pain-foot{align-items:flex-start;flex-direction:column;gap:20px}
-  .grid-3,.grid-2,.stats,.foot-top,.cen-panel{grid-template-columns:1fr}
+  .cta-dark .container{padding-top:40px;padding-bottom:40px;padding-left:24px;padding-right:24px}
+  .cta-dark h2{font-size:28px}
+  .cta-dark h2,.cta-dark p{max-width:100%}
+  .grid-3,.grid-2,.stats,.foot-top,.cen-panel,.kako-grid{grid-template-columns:1fr}
+  .kako-card{min-height:0;padding-top:24px;padding-bottom:24px;padding-left:24px;padding-right:24px}
   .cen-tabs{width:100%;border-radius:var(--r-lg)}
   .cen-tab{flex:1 1 auto;padding-left:16px;padding-right:16px}
   .cen-how,.cen-card{padding-top:24px;padding-bottom:24px;padding-left:24px;padding-right:24px}
@@ -1096,25 +1121,38 @@ section{padding-top:96px;padding-bottom:96px}
 <!-- koraci -->
 <section>
   <div class="container">
-    <div class="sec-head">
-      <span class="eyebrow">Kako radimo</span>
-      <h2>Od poziva do <span class="acc">čistog prostora</span></h2>
-    </div>
-    <div class="grid-3">
-      <div class="step">
-        <span class="n">1</span>
-        <h3>Pozoveš nas</h3>
-        <p>Kažeš o kakvom je prostoru reč, koliko ima kvadrata i koliko često ti treba čišćenje.</p>
+    <div class="kako">
+      <div class="kako-copy">
+        <span class="eyebrow">Kako radimo</span>
+        <h2>Od poziva do <span class="acc">čistog prostora</span></h2>
+        <p>Nema komplikovane procedure ni papirologije. Četiri koraka od prvog poziva do prostora o kom više ne razmišljaš.</p>
+        <a class="btn" href="#kontakt">Zatraži besplatnu procenu</a>
       </div>
-      <div class="step">
-        <span class="n">2</span>
-        <h3>Izađemo na procenu</h3>
-        <p>Vidimo prostor, dogovorimo obim posla i damo cenu. Procena je besplatna i ničim te ne obavezuje.</p>
-      </div>
-      <div class="step">
-        <span class="n">3</span>
-        <h3>Dolazimo po rasporedu</h3>
-        <p>Ekipa dolazi u dogovoreno vreme, sa opremom i materijalom. Ti samo otvoriš vrata.</p>
+      <div class="kako-grid">
+        <article class="kako-card top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+          <p>Kažeš o kakvom je prostoru reč, koliko ima kvadrata i koliko često ti treba čišćenje.</p>
+          <hr>
+          <h3><i>01</i>Pozoveš nas</h3>
+        </article>
+        <article class="kako-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1z"/><path d="M16 5h2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2"/><path d="m9 13 2 2 4-4"/></svg>
+          <p>Vidimo prostor, dogovorimo obim posla i damo cenu. Procena je besplatna i ničim te ne obavezuje.</p>
+          <hr>
+          <h3><i>02</i>Izađemo na procenu</h3>
+        </article>
+        <article class="kako-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="m9 15 2 2 4-4"/></svg>
+          <p>Ekipa dolazi u dogovoreno vreme, sa opremom i materijalom. Ti samo otvoriš vrata.</p>
+          <hr>
+          <h3><i>03</i>Dolazimo po rasporedu</h3>
+        </article>
+        <article class="kako-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
+          <p>Ako nešto nije urađeno kako smo se dogovorili, vraćamo se i ispravljamo bez naplate.</p>
+          <hr>
+          <h3><i>04</i>Proveravamo posao</h3>
+        </article>
       </div>
     </div>
   </div>
@@ -1307,7 +1345,7 @@ section{padding-top:96px;padding-bottom:96px}
 // suptilan reveal (sadržaj je vidljiv i bez JS-a)
 (function(){
   if(!('IntersectionObserver' in window))return;
-  var items=document.querySelectorAll('.card, .pain-card, .step, .sec-head, .hero-copy, .contact-item');
+  var items=document.querySelectorAll('.card, .pain-card, .kako-card, .sec-head, .hero-copy, .contact-item');
   items.forEach(function(el){el.classList.add('rv','pre')});
   var io=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
