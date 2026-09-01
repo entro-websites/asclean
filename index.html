@@ -175,24 +175,118 @@ section{padding-top:96px;padding-bottom:96px}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 
 /* ---------- zašto ---------- */
-.why{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
-.why-media{position:relative;border-radius:var(--r-xl);padding-top:32px;padding-bottom:32px;padding-left:32px;padding-right:32px;display:flex;align-items:center;justify-content:center}
-.why-media::before{content:"";position:absolute;left:0;right:0;top:0;bottom:0;background:var(--glow);pointer-events:none}
-.why-media img{position:relative;width:100%;height:376px;object-fit:contain}
-.why-list{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
-.why-item{display:flex;flex-direction:column;gap:12px}
-.why-item svg{width:28px;height:28px;color:var(--blue-600)}
-.why-item p{font-size:16px}
+.why-strips{display:flex;flex-direction:column;gap:24px;margin-top:24px}
+.why-strip{
+  background:var(--mist);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding-top:32px;padding-bottom:32px;padding-left:32px;padding-right:32px;
+}
+.why-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.why-stats .stat{text-align:center}
+.why-stats .stat span{display:block;margin-top:8px}
+.why-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.why-cta h3{font-size:20px}
+.why-cta p{font-size:16px;color:#68849a;margin-top:8px}
+
+/* ---------- usluge: tabovi ---------- */
+.usl{display:grid;grid-template-columns:.85fr 1.55fr;gap:32px;align-items:start}
+.usl-list{display:flex;flex-direction:column;gap:12px}
+.usl-tab{
+  display:flex;align-items:center;gap:16px;width:100%;text-align:left;cursor:pointer;
+  background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding-top:20px;padding-bottom:20px;padding-left:24px;padding-right:24px;
+  font-family:inherit;color:inherit;
+  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+.usl-tab:hover{border-color:var(--blue-200);transform:translateY(-2px)}
+.usl-tab .n{font-size:20px;font-weight:800;line-height:1;color:#a8bccb;flex:none;transition:color .2s ease}
+.usl-tab-txt{display:flex;flex-direction:column;gap:4px;min-width:0}
+.usl-tab b{font-size:16px;font-weight:700;color:var(--ink);letter-spacing:-.01em;line-height:1.28}
+.usl-tab i{font-style:normal;font-size:12px;color:#68849a;line-height:1.4}
+.usl-tab .go{width:20px;height:20px;flex:none;margin-left:auto;color:var(--blue-600);opacity:0;transform:translateX(-8px);transition:opacity .2s ease,transform .2s ease}
+.usl-tab[aria-selected="true"]{border-color:var(--blue-600);box-shadow:inset 0 0 0 1px var(--blue-600),var(--sh-sm);transform:none}
+.usl-tab[aria-selected="true"] .n{color:var(--blue-600)}
+.usl-tab[aria-selected="true"] .go{opacity:1;transform:none}
+.usl-panel{background:var(--white);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-sm);scroll-margin-top:96px}
+.usl-panel[hidden]{display:none}
+.usl-media{position:relative;height:320px}
+.usl-media img{width:100%;height:100%;object-fit:cover}
+.usl-media::after{content:"";position:absolute;left:0;right:0;top:0;bottom:0;background:linear-gradient(180deg,rgba(2,51,79,.4) 0%,rgba(2,51,79,0) 44%,rgba(2,51,79,.5) 100%)}
+.usl-tape{position:absolute;left:0;right:0;top:0;height:8px;z-index:2;background:repeating-linear-gradient(135deg,var(--blue-500) 0 12px,var(--blue-200) 12px 24px)}
+.usl-badge{
+  position:absolute;top:24px;right:24px;z-index:2;display:inline-flex;align-items:center;
+  padding-top:8px;padding-bottom:8px;padding-left:16px;padding-right:16px;
+  border:1px solid rgba(255,255,255,.4);border-radius:999px;background:rgba(2,51,79,.55);
+  color:var(--white);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;line-height:1;
+}
+.usl-media .tile{position:absolute;left:24px;bottom:24px;z-index:2;background:var(--white);box-shadow:var(--sh-sm)}
+.usl-body{padding-top:32px;padding-bottom:32px;padding-left:32px;padding-right:32px;display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.usl-body h3{font-size:32px;font-weight:800;letter-spacing:-.02em}
+.usl-body>p{font-size:16px;max-width:60ch}
+.usl-checks{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 24px;width:100%}
+.usl-checks li{display:flex;align-items:flex-start;gap:12px;font-size:16px}
+.usl-checks svg{width:20px;height:20px;flex:none;margin-top:4px;color:var(--blue-600)}
+.usl-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;width:100%;border-top:1px solid var(--line);padding-top:20px}
+.usl-meta .lbl{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#68849a}
+.usl-tag{
+  display:inline-flex;align-items:center;background:var(--mist);border:1px solid var(--line);border-radius:999px;
+  padding-top:8px;padding-bottom:8px;padding-left:16px;padding-right:16px;
+  font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#3d5a6c;line-height:1;
+}
 
 /* ---------- cenovnik ---------- */
-.price{display:flex;flex-direction:column;gap:20px}
-.price .amount{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;color:var(--ink)}
-.price .amount b{font-size:36px;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
-.price .amount span{font-size:12px;font-weight:600;color:#68849a;width:100%}
-.price ul{display:flex;flex-direction:column;gap:12px}
-.price li{display:flex;align-items:flex-start;gap:12px;font-size:16px}
-.price li svg{width:20px;height:20px;color:var(--blue-500);flex:none;margin-top:4px}
-.price .note{font-size:12px;color:#68849a;border-top:1px solid var(--line);padding-top:16px;margin-top:auto}
+#cenovnik .sec-head{margin-bottom:32px}
+.cen-tabs-wrap{display:flex;justify-content:center;margin-bottom:32px}
+.cen-tabs{display:inline-flex;gap:4px;padding:4px;background:var(--white);border:1px solid var(--line);border-radius:999px;flex-wrap:wrap;justify-content:center}
+.cen-tab{
+  border:0;border-radius:999px;background:transparent;cursor:pointer;
+  padding-top:12px;padding-bottom:12px;padding-left:24px;padding-right:24px;
+  font-family:inherit;font-size:16px;font-weight:600;line-height:1;color:#3d5a6c;
+  transition:background .2s ease,color .2s ease,box-shadow .2s ease;
+}
+.cen-tab:hover{color:var(--blue-600)}
+.cen-tab[aria-selected="true"]{background:var(--blue-600);color:var(--white);box-shadow:0 8px 20px rgba(0,115,183,.24)}
+.cen-grid{display:grid;grid-template-columns:1fr 2fr;gap:24px;align-items:start}
+.cen-how{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding-top:32px;padding-bottom:32px;padding-left:32px;padding-right:32px;
+  display:flex;flex-direction:column;gap:24px;
+}
+.cen-how h3{font-size:20px}
+.cen-how ol{list-style:none;display:flex;flex-direction:column;gap:20px}
+.cen-how li{display:flex;flex-direction:column;gap:8px}
+.cen-how b{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:700;color:var(--ink)}
+.cen-how b i{font-style:normal;font-size:16px;font-weight:800;color:var(--blue-600)}
+.cen-how p{font-size:16px}
+.cen-how .note{font-size:12px;color:#68849a;border-top:1px solid var(--line);padding-top:16px;margin-top:auto}
+.cen-panel{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.cen-panel[hidden]{display:none}
+.cen-card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding-top:32px;padding-bottom:32px;padding-left:32px;padding-right:32px;
+  display:flex;flex-direction:column;gap:20px;
+}
+.cen-card h3{font-size:20px}
+.cen-card>p{font-size:16px}
+.cen-price{
+  display:flex;align-items:center;gap:8px;background:var(--mist);border:1px solid var(--line);border-radius:999px;
+  padding-top:12px;padding-bottom:12px;padding-left:24px;padding-right:12px;
+}
+.cen-price b{font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--ink);white-space:nowrap}
+.cen-price span{font-size:12px;font-weight:600;color:#68849a}
+.cen-knob{
+  width:32px;height:32px;border-radius:999px;background:var(--blue-600);color:var(--white);
+  display:flex;align-items:center;justify-content:center;flex:none;margin-left:auto;
+}
+.cen-knob svg{width:20px;height:20px}
+.cen-list{display:flex;flex-direction:column;gap:12px}
+.cen-list li{display:flex;align-items:flex-start;gap:12px;font-size:16px}
+.cen-list svg{width:20px;height:20px;flex:none;margin-top:4px;color:var(--blue-500)}
+.cen-card .btn{width:100%;margin-top:auto}
+.cen-card.top{background:var(--blue-900);border-color:var(--blue-900);box-shadow:var(--sh-md)}
+.cen-card.top h3{color:var(--white)}
+.cen-card.top>p,.cen-card.top .cen-list li{color:var(--blue-100)}
+.cen-card.top .cen-list svg{color:var(--blue-300)}
+.cen-card.top .cen-price{background:var(--white);border-color:var(--white)}
 
 /* ---------- koraci ---------- */
 .step{display:flex;flex-direction:column;gap:16px}
@@ -250,11 +344,14 @@ section{padding-top:96px;padding-bottom:96px}
 @media (max-width:1100px){
   h1{font-size:44px}
   h2{font-size:32px}
-  .hero .container,.why,.about,.contact{grid-template-columns:1fr;gap:48px}
+  .hero .container,.about,.contact{grid-template-columns:1fr;gap:48px}
   .hero-media img,.about-media img{height:400px}
-  .why-media img{height:320px}
   .hero-badge{left:24px}
   .grid-3{grid-template-columns:repeat(2,1fr)}
+  .cen-grid{grid-template-columns:1fr}
+  .cen-how{order:2}
+  .usl{grid-template-columns:1fr;gap:32px}
+  .usl-media{height:280px}
   .foot-top{grid-template-columns:1fr 1fr;gap:32px}
 }
 @media (max-width:991px){
@@ -274,12 +371,21 @@ section{padding-top:96px;padding-bottom:96px}
   .pain-tag{font-size:16px;padding-left:20px;padding-right:20px}
   .pain-wm{width:200px;height:200px;right:-40px;top:auto;bottom:-32px}
   .pain-foot{align-items:flex-start;flex-direction:column;gap:20px}
-  .grid-3,.grid-2,.why-list,.stats,.foot-top{grid-template-columns:1fr}
+  .grid-3,.grid-2,.stats,.foot-top,.cen-panel{grid-template-columns:1fr}
+  .cen-tabs{width:100%;border-radius:var(--r-lg)}
+  .cen-tab{flex:1 1 auto;padding-left:16px;padding-right:16px}
+  .cen-how,.cen-card{padding-top:24px;padding-bottom:24px;padding-left:24px;padding-right:24px}
   .sec-head{margin-bottom:40px}
   .card{padding-top:24px;padding-bottom:24px;padding-left:24px;padding-right:24px}
+  .usl-tab{padding-left:20px;padding-right:20px}
+  .usl-media{height:200px}
+  .usl-body{padding-top:24px;padding-bottom:24px;padding-left:24px;padding-right:24px}
+  .usl-body h3{font-size:28px}
+  .usl-checks{grid-template-columns:1fr}
   .hero-media img,.about-media img{height:280px}
-  .why-media img{height:220px}
-  .why-media{padding-top:24px;padding-bottom:24px;padding-left:24px;padding-right:24px}
+  .why-strip{padding-top:24px;padding-bottom:24px;padding-left:24px;padding-right:24px}
+  .why-stats{gap:12px}
+  .why-stats .stat b{font-size:20px}
   .hero-badge{position:static;max-width:none;margin-top:16px}
   .btn{width:100%}
   .price .amount b{font-size:32px}
@@ -435,54 +541,319 @@ section{padding-top:96px;padding-bottom:96px}
     <div class="sec-head">
       <span class="eyebrow">Usluge</span>
       <h2>Šta sve <span class="acc">čistimo</span></h2>
-      <p class="lead">Radimo povremeno ili redovno čišćenje, sa našim potrošnim materijalom i opremom ili bez njega. Kako ti odgovara.</p>
+      <p class="lead">Radimo povremeno ili redovno čišćenje, sa našim potrošnim materijalom i opremom ili bez njega. Izaberi uslugu sa spiska i vidiš šta tačno pokriva.</p>
     </div>
-    <div class="grid-3">
-      <article class="card">
-        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 10h.01M15 10h.01"/></svg></span>
-        <h3>Poslovni prostori</h3>
-        <p>Kancelarije, hoteli, restorani, zubne ordinacije. Održavamo higijenu tako da tvoji zaposleni i gosti to primete odmah.</p>
+    <div class="usl">
+      <div class="usl-list" role="tablist" aria-label="Spisak usluga" aria-orientation="vertical">
+        <button class="usl-tab" type="button" role="tab" id="usl-t01" aria-controls="usl-p01" aria-selected="true" tabindex="0">
+          <span class="n">01</span>
+          <span class="usl-tab-txt">
+            <b>Poslovni prostori</b>
+            <i>Kancelarije, hoteli, ordinacije</i>
+          </span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </button>
+        <button class="usl-tab" type="button" role="tab" id="usl-t02" aria-controls="usl-p02" aria-selected="false" tabindex="-1">
+          <span class="n">02</span>
+          <span class="usl-tab-txt">
+            <b>Stambene zgrade</b>
+            <i>Ulazi, stepeništa, prilaz</i>
+          </span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </button>
+        <button class="usl-tab" type="button" role="tab" id="usl-t03" aria-controls="usl-p03" aria-selected="false" tabindex="-1">
+          <span class="n">03</span>
+          <span class="usl-tab-txt">
+            <b>Stanovi</b>
+            <i>Redovno ili generalno</i>
+          </span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </button>
+        <button class="usl-tab" type="button" role="tab" id="usl-t04" aria-controls="usl-p04" aria-selected="false" tabindex="-1">
+          <span class="n">04</span>
+          <span class="usl-tab-txt">
+            <b>Pranje staklenih površina</b>
+            <i>Izlozi, fasade, prozori</i>
+          </span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </button>
+        <button class="usl-tab" type="button" role="tab" id="usl-t05" aria-controls="usl-p05" aria-selected="false" tabindex="-1">
+          <span class="n">05</span>
+          <span class="usl-tab-txt">
+            <b>Mašinsko pranje poda</b>
+            <i>Mermer, parket, industrijski</i>
+          </span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </button>
+        <button class="usl-tab" type="button" role="tab" id="usl-t06" aria-controls="usl-p06" aria-selected="false" tabindex="-1">
+          <span class="n">06</span>
+          <span class="usl-tab-txt">
+            <b>Dubinsko pranje nameštaja</b>
+            <i>Garniture, tepisi, itisoni</i>
+          </span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </button>
+        <button class="usl-tab" type="button" role="tab" id="usl-t07" aria-controls="usl-p07" aria-selected="false" tabindex="-1">
+          <span class="n">07</span>
+          <span class="usl-tab-txt">
+            <b>Čišćenje posle radova</b>
+            <i>Gips, malter, boja</i>
+          </span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </button>
+        <button class="usl-tab" type="button" role="tab" id="usl-t08" aria-controls="usl-p08" aria-selected="false" tabindex="-1">
+          <span class="n">08</span>
+          <span class="usl-tab-txt">
+            <b>Garaže i podrumi</b>
+            <i>Zajednički prostori</i>
+          </span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </button>
+        <button class="usl-tab" type="button" role="tab" id="usl-t09" aria-controls="usl-p09" aria-selected="false" tabindex="-1">
+          <span class="n">09</span>
+          <span class="usl-tab-txt">
+            <b>Čišćenje po pozivu</b>
+            <i>Jednokratno ili redovno</i>
+          </span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div class="usl-panels">
+      <article class="usl-panel" role="tabpanel" id="usl-p01" aria-labelledby="usl-t01">
+        <div class="usl-media">
+          <span class="usl-tape" aria-hidden="true"></span>
+          <span class="usl-badge">Usluga 01 / 09</span>
+          <img src="assets/cleaning-services-09.jpg" alt="Krpa u plavoj rukavici briše staklenu površinu sa penom" loading="lazy">
+          <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 10h.01M15 10h.01"/></svg></span>
+        </div>
+        <div class="usl-body">
+          <h3>Poslovni prostori</h3>
+          <p>Održavamo higijenu prostora u kom radiš i primaš goste, pre ili posle radnog vremena. Dolazimo u dogovorenim terminima, sa svojom opremom i potrošnim materijalom.</p>
+          <ul class="usl-checks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Kancelarije i sale za sastanke</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sanitarni čvorovi i kuhinje</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Hodnici, ulazi i staklene pregrade</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dnevno, nedeljno ili povremeno</li>
+          </ul>
+          <div class="usl-meta">
+            <span class="lbl">Oprema</span>
+          <span class="usl-tag">Usisivač</span>
+          <span class="usl-tag">Mašina za pod</span>
+          <span class="usl-tag">Profesionalna sredstva</span>
+          <span class="usl-tag">Potrošni materijal</span>
+          </div>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </div>
       </article>
-      <article class="card">
-        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V4a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v17"/><path d="M15 9h4a1 1 0 0 1 1 1v11"/><path d="M2 21h20"/><path d="M8 7h3M8 11h3M8 15h3"/></svg></span>
-        <h3>Stambene zgrade</h3>
-        <p>Čišćenje ulaza i stepeništa, nega zelenih površina i prostora oko prilaza. Radimo i profesionalno upravljanje zgradama.</p>
+      <article class="usl-panel" role="tabpanel" id="usl-p02" aria-labelledby="usl-t02" hidden>
+        <div class="usl-media">
+          <span class="usl-tape" aria-hidden="true"></span>
+          <span class="usl-badge">Usluga 02 / 09</span>
+          <img src="assets/14.jpg" alt="Kap vode koja pada u čistu vodu" loading="lazy">
+          <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V4a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v17"/><path d="M15 9h4a1 1 0 0 1 1 1v11"/><path d="M2 21h20"/><path d="M8 7h3M8 11h3M8 15h3"/></svg></span>
+        </div>
+        <div class="usl-body">
+          <h3>Stambene zgrade</h3>
+          <p>Čistimo zajedničke prostore zgrade po rasporedu dogovorenom sa stanarima. Radimo i profesionalno upravljanje zgradama, pa jedan tim pokriva sve.</p>
+          <ul class="usl-checks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ulaz, stepenište i liftovi</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pranje prozora zajedničkih prostorija</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nega zelenih površina</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Održavanje prilaza i dvorišta</li>
+          </ul>
+          <div class="usl-meta">
+            <span class="lbl">Oprema</span>
+          <span class="usl-tag">Mašinsko pranje</span>
+          <span class="usl-tag">Kosilica</span>
+          <span class="usl-tag">Trimer</span>
+          <span class="usl-tag">Deterdženti</span>
+          </div>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </div>
       </article>
-      <article class="card">
-        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-8h6v8"/></svg></span>
-        <h3>Stanovi</h3>
-        <p>Redovno ili generalno čišćenje stana, po satu. Dolazimo minimalno pet sati, dovoljno da se obiđe ceo stan.</p>
+      <article class="usl-panel" role="tabpanel" id="usl-p03" aria-labelledby="usl-t03" hidden>
+        <div class="usl-media">
+          <span class="usl-tape" aria-hidden="true"></span>
+          <span class="usl-badge">Usluga 03 / 09</span>
+          <img src="assets/cleaning-services-09.jpg" alt="Krpa u plavoj rukavici briše staklenu površinu sa penom" loading="lazy">
+          <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-8h6v8"/></svg></span>
+        </div>
+        <div class="usl-body">
+          <h3>Stanovi</h3>
+          <p>Čišćenje stana po satu, minimum pet sati po dolasku. To je dovoljno da se obiđe ceo stan, a ne samo ono što se prvo vidi.</p>
+          <ul class="usl-checks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Kupatilo i kuhinja u detalje</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Usisavanje i pranje podova</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Prašina, police i stolarija</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pranje prozora iznutra</li>
+          </ul>
+          <div class="usl-meta">
+            <span class="lbl">Oprema</span>
+          <span class="usl-tag">Usisivač</span>
+          <span class="usl-tag">Parni čistač</span>
+          <span class="usl-tag">Sredstva za kupatilo</span>
+          <span class="usl-tag">Krpe od mikrofibera</span>
+          </div>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </div>
       </article>
-      <article class="card">
-        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/><path d="M4 13h16"/><path d="M12 4v16"/></svg></span>
-        <h3>Pranje staklenih površina</h3>
-        <p>Izlozi, staklene fasade i prozori, i tamo gde se teško stiže. Voda ostaje unutra, staklo bez tragova.</p>
+      <article class="usl-panel" role="tabpanel" id="usl-p04" aria-labelledby="usl-t04" hidden>
+        <div class="usl-media">
+          <span class="usl-tape" aria-hidden="true"></span>
+          <span class="usl-badge">Usluga 04 / 09</span>
+          <img src="assets/14.jpg" alt="Kap vode koja pada u čistu vodu" loading="lazy">
+          <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/><path d="M4 13h16"/><path d="M12 4v16"/></svg></span>
+        </div>
+        <div class="usl-body">
+          <h3>Pranje staklenih površina</h3>
+          <p>Peremo staklo i tamo gde se teško stiže, teleskopskim sistemom sa prečišćenom vodom. Voda ostaje unutra, a staklo se suši bez tragova i fleka.</p>
+          <ul class="usl-checks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Izlozi i staklene fasade</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Prozori i stolarija</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Rad na visini teleskopom</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Zaštita poda i nameštaja</li>
+          </ul>
+          <div class="usl-meta">
+            <span class="lbl">Oprema</span>
+          <span class="usl-tag">Teleskopski sistem</span>
+          <span class="usl-tag">Prečišćena voda</span>
+          <span class="usl-tag">Profesionalni brisači</span>
+          <span class="usl-tag">Zaštitne folije</span>
+          </div>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </div>
       </article>
-      <article class="card">
-        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg></span>
-        <h3>Mašinsko pranje poda</h3>
-        <p>Mermer, parket i industrijski podovi. Mašinom se skida ono što krpa ne može, bez oštećenja površine.</p>
+      <article class="usl-panel" role="tabpanel" id="usl-p05" aria-labelledby="usl-t05" hidden>
+        <div class="usl-media">
+          <span class="usl-tape" aria-hidden="true"></span>
+          <span class="usl-badge">Usluga 05 / 09</span>
+          <img src="assets/cleaning-services-09.jpg" alt="Krpa u plavoj rukavici briše staklenu površinu sa penom" loading="lazy">
+          <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg></span>
+        </div>
+        <div class="usl-body">
+          <h3>Mašinsko pranje poda</h3>
+          <p>Mašinom skidamo naslage koje krpa ne može, sa sredstvom prilagođenim podlozi. Površina ostaje neoštećena i brzo je suva.</p>
+          <ul class="usl-checks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mermer, granit i keramika</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Parket i laminat</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Industrijski i epoksi podovi</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Poliranje i zaštita površine</li>
+          </ul>
+          <div class="usl-meta">
+            <span class="lbl">Oprema</span>
+          <span class="usl-tag">Rotaciona mašina</span>
+          <span class="usl-tag">Usisivač za vodu</span>
+          <span class="usl-tag">pH-neutralna sredstva</span>
+          <span class="usl-tag">Polir-mašina</span>
+          </div>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </div>
       </article>
-      <article class="card">
-        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18v-6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6"/><path d="M6 18v2M18 18v2"/><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/><path d="M2 18h20"/></svg></span>
-        <h3>Dubinsko pranje nameštaja</h3>
-        <p>Garniture, tepisi i itisoni. Prljavština izlazi iz vlakana, tkanina se suši istog dana.</p>
+      <article class="usl-panel" role="tabpanel" id="usl-p06" aria-labelledby="usl-t06" hidden>
+        <div class="usl-media">
+          <span class="usl-tape" aria-hidden="true"></span>
+          <span class="usl-badge">Usluga 06 / 09</span>
+          <img src="assets/14.jpg" alt="Kap vode koja pada u čistu vodu" loading="lazy">
+          <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18v-6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6"/><path d="M6 18v2M18 18v2"/><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/><path d="M2 18h20"/></svg></span>
+        </div>
+        <div class="usl-body">
+          <h3>Dubinsko pranje nameštaja</h3>
+          <p>Ekstrakcijom vadimo prljavštinu iz vlakana, a ne samo sa površine. Tkanina se suši istog dana i prostor odmah može da se koristi.</p>
+          <ul class="usl-checks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Garniture, fotelje i stolice</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Tepisi i itisoni</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dušeci i auto-sedišta</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Uklanjanje mrlja i mirisa</li>
+          </ul>
+          <div class="usl-meta">
+            <span class="lbl">Oprema</span>
+          <span class="usl-tag">Ekstraktor</span>
+          <span class="usl-tag">Predtretman</span>
+          <span class="usl-tag">Sredstvo za mrlje</span>
+          <span class="usl-tag">Sušenje istog dana</span>
+          </div>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </div>
       </article>
-      <article class="card">
-        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M5 20V10l7-6 7 6v10"/><path d="M10 20v-5h4v5"/><path d="m14 3 5 4"/></svg></span>
-        <h3>Čišćenje posle radova</h3>
-        <p>Prašina od gipsa, ostaci maltera i boje, lepljive nalepnice na stolariji. Prostor spreman za useljenje.</p>
+      <article class="usl-panel" role="tabpanel" id="usl-p07" aria-labelledby="usl-t07" hidden>
+        <div class="usl-media">
+          <span class="usl-tape" aria-hidden="true"></span>
+          <span class="usl-badge">Usluga 07 / 09</span>
+          <img src="assets/cleaning-services-09.jpg" alt="Krpa u plavoj rukavici briše staklenu površinu sa penom" loading="lazy">
+          <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M5 20V10l7-6 7 6v10"/><path d="M10 20v-5h4v5"/><path d="m14 3 5 4"/></svg></span>
+        </div>
+        <div class="usl-body">
+          <h3>Čišćenje posle radova</h3>
+          <p>Skidamo građevinsku prašinu, ostatke maltera i boje i lepljive nalepnice sa stolarije. Prostor predajemo spreman za useljenje.</p>
+          <ul class="usl-checks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Prašina sa svih površina</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ostaci maltera, gipsa i boje</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nalepnice i folije sa stolarije</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pranje prozora i podova</li>
+          </ul>
+          <div class="usl-meta">
+            <span class="lbl">Oprema</span>
+          <span class="usl-tag">Industrijski usisivač</span>
+          <span class="usl-tag">Strugači</span>
+          <span class="usl-tag">Rastvarač lepka</span>
+          <span class="usl-tag">Odvoz otpada</span>
+          </div>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </div>
       </article>
-      <article class="card">
-        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18"/><path d="M5 12V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5"/><path d="M4 12v7h16v-7"/><path d="M9 19v-4h6v4"/></svg></span>
-        <h3>Garaže i podrumi</h3>
-        <p>Zajednički prostori koje niko ne stigne da očisti. Uklanjamo naslage, prašinu i mrlje od ulja.</p>
+      <article class="usl-panel" role="tabpanel" id="usl-p08" aria-labelledby="usl-t08" hidden>
+        <div class="usl-media">
+          <span class="usl-tape" aria-hidden="true"></span>
+          <span class="usl-badge">Usluga 08 / 09</span>
+          <img src="assets/14.jpg" alt="Kap vode koja pada u čistu vodu" loading="lazy">
+          <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18"/><path d="M5 12V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5"/><path d="M4 12v7h16v-7"/><path d="M9 19v-4h6v4"/></svg></span>
+        </div>
+        <div class="usl-body">
+          <h3>Garaže i podrumi</h3>
+          <p>Prostori koje niko ne stigne da očisti: naslage prašine, paučina i mrlje od ulja. Radimo mašinski i odnosimo ono što se skupi.</p>
+          <ul class="usl-checks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pranje betonskih podova</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mrlje od ulja i goriva</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Uklanjanje paučine i prašine</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Iznošenje i odvoz otpada</li>
+          </ul>
+          <div class="usl-meta">
+            <span class="lbl">Oprema</span>
+          <span class="usl-tag">Mašina za pod</span>
+          <span class="usl-tag">Odmašćivač</span>
+          <span class="usl-tag">Vodeni usisivač</span>
+          <span class="usl-tag">Prevoz otpada</span>
+          </div>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </div>
       </article>
-      <article class="card">
-        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="M8 15h3"/></svg></span>
-        <h3>Čišćenje po pozivu</h3>
-        <p>Jednokratno, nedeljno ili dnevno održavanje. Raspored praviš ti, mi se držimo dogovora.</p>
+      <article class="usl-panel" role="tabpanel" id="usl-p09" aria-labelledby="usl-t09" hidden>
+        <div class="usl-media">
+          <span class="usl-tape" aria-hidden="true"></span>
+          <span class="usl-badge">Usluga 09 / 09</span>
+          <img src="assets/cleaning-services-09.jpg" alt="Krpa u plavoj rukavici briše staklenu površinu sa penom" loading="lazy">
+          <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="M8 15h3"/></svg></span>
+        </div>
+        <div class="usl-body">
+          <h3>Čišćenje po pozivu</h3>
+          <p>Raspored praviš ti: jednokratno, nedeljno ili svakog dana. Mi se držimo dogovora i dolazimo u istom terminu, sa istim ljudima.</p>
+          <ul class="usl-checks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Jednokratni izlazak na teren</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nedeljno održavanje</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dnevno održavanje</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Termini van radnog vremena</li>
+          </ul>
+          <div class="usl-meta">
+            <span class="lbl">Oprema</span>
+          <span class="usl-tag">Fiksan termin</span>
+          <span class="usl-tag">Isti tim</span>
+          <span class="usl-tag">Dogovorena cena</span>
+          <span class="usl-tag">Bez obaveze</span>
+          </div>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </div>
       </article>
+      </div>
     </div>
   </div>
 </section>
@@ -490,48 +861,55 @@ section{padding-top:96px;padding-bottom:96px}
 <!-- zašto -->
 <section id="zasto">
   <div class="container">
-    <div class="why">
-      <div class="why-media">
-        <img src="assets/14.jpg" alt="Kap vode koja pada u čistu vodu">
+    <div class="sec-head">
+      <span class="eyebrow">Zašto Asclean</span>
+      <h2>Poverenje se gradi <span class="acc">na dolasku na vreme</span></h2>
+      <p class="lead">Klijenti nas preporučuju zbog toga kako radimo, ne zbog toga šta pišemo o sebi.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <h3>Brza i efektivna usluga</h3>
+        <p>Javimo se na poziv, izađemo na procenu i dogovorimo termin bez odugovlačenja.</p>
+      </article>
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h3>Zagarantovan kvalitet</h3>
+        <p>Ako nešto nije urađeno kako smo se dogovorili, vraćamo se i ispravljamo.</p>
+      </article>
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9a2 2 0 0 1 2-2h5l2-3h5a2 2 0 0 1 2 2v13z"/><circle cx="9" cy="15" r="2"/><path d="M15 12h3"/></svg></span>
+        <h3>Nove mašine</h3>
+        <p>Radimo profesionalnom opremom za mašinsko pranje podova i dubinsko pranje nameštaja.</p>
+      </article>
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+        <h3>Obučeni radnici</h3>
+        <p>Isti ljudi dolaze kod tebe, znaju prostor i znaju šta se gde koristi.</p>
+      </article>
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></span>
+        <h3>Fleksibilno radno vreme</h3>
+        <p>Radimo pre otvaranja, posle smene ili vikendom, kad ne smetamo tvom poslu.</p>
+      </article>
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9h6l-6 6h6"/></svg></span>
+        <h3>Bez dodatnih troškova</h3>
+        <p>Cenu dogovorimo pre početka. Materijal i oprema ulaze u nju, bez naknadnih stavki.</p>
+      </article>
+    </div>
+    <div class="why-strips">
+      <div class="why-strip why-stats">
+        <div class="stat"><b>10+</b><span>Godina na terenu, od 2015.</span></div>
+        <div class="stat"><b>0 din</b><span>Procena posla i izlazak na teren</span></div>
+        <div class="stat"><b>9</b><span>Vrsta usluga pod jednim krovom</span></div>
       </div>
-      <div>
-        <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:40px">
-          <span class="eyebrow">Zašto Asclean</span>
-          <h2>Poverenje se gradi <span class="acc">na dolasku na vreme</span></h2>
-          <p class="lead">Klijenti nas preporučuju zbog toga kako radimo, ne zbog toga šta pišemo o sebi.</p>
+      <div class="why-strip why-cta">
+        <div>
+          <h3>Hoćeš da znaš koliko košta tvoj prostor?</h3>
+          <p>Izađemo na procenu, kažemo cenu i ti odlučuješ.</p>
         </div>
-        <div class="why-list">
-          <div class="why-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            <h4>Brza i efektivna usluga</h4>
-            <p>Javimo se na poziv, izađemo na procenu i dogovorimo termin bez odugovlačenja.</p>
-          </div>
-          <div class="why-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
-            <h4>Zagarantovan kvalitet</h4>
-            <p>Ako nešto nije urađeno kako smo se dogovorili, vraćamo se i ispravljamo.</p>
-          </div>
-          <div class="why-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9a2 2 0 0 1 2-2h5l2-3h5a2 2 0 0 1 2 2v13z"/><circle cx="9" cy="15" r="2"/><path d="M15 12h3"/></svg>
-            <h4>Nove mašine</h4>
-            <p>Radimo profesionalnom opremom za mašinsko pranje podova i dubinsko pranje nameštaja.</p>
-          </div>
-          <div class="why-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
-            <h4>Obučeni radnici</h4>
-            <p>Isti ljudi dolaze kod tebe, znaju prostor i znaju šta se gde koristi.</p>
-          </div>
-          <div class="why-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
-            <h4>Fleksibilno radno vreme</h4>
-            <p>Radimo pre otvaranja, posle smene ili vikendom, kad ne smetamo tvom poslu.</p>
-          </div>
-          <div class="why-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9h6l-6 6h6"/></svg>
-            <h4>Bez dodatnih troškova</h4>
-            <p>Cenu dogovorimo pre početka. Materijal i oprema ulaze u nju, bez naknadnih stavki.</p>
-          </div>
-        </div>
+        <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
       </div>
     </div>
   </div>
@@ -543,40 +921,174 @@ section{padding-top:96px;padding-bottom:96px}
     <div class="sec-head">
       <span class="eyebrow">Cenovnik</span>
       <h2>Cena zavisi od prostora, <span class="acc">a znaš je unapred</span></h2>
-      <p class="lead">Ovo su početne cene. Tačnu ponudu dajemo posle procene, koja te ne košta ništa.</p>
+      <p class="lead">Ovo su početne cene po kategorijama. Tačnu ponudu dajemo posle procene, koja te ne košta ništa.</p>
     </div>
-    <div class="grid-3">
-      <article class="card price">
-        <h3>Poslovni prostor</h3>
-        <div class="amount"><b>od 1.200 din</b><span>zavisi od kvadrature</span></div>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Svakodnevno čišćenje</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Povremeno čišćenje sa jednim generalnim u paketu</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Generalno čišćenje</li>
-        </ul>
-        <p class="note">Za tačnu ponudu pozovi nas i dogovorimo besplatnu procenu posla.</p>
+    <div class="cen-tabs-wrap">
+      <div class="cen-tabs" role="tablist" aria-label="Kategorije cenovnika">
+        <button class="cen-tab" type="button" role="tab" id="cen-t1" aria-controls="cen-p1" aria-selected="true" tabindex="0">Poslovni prostori</button>
+        <button class="cen-tab" type="button" role="tab" id="cen-t2" aria-controls="cen-p2" aria-selected="false" tabindex="-1">Stambene zgrade</button>
+        <button class="cen-tab" type="button" role="tab" id="cen-t3" aria-controls="cen-p3" aria-selected="false" tabindex="-1">Stanovi</button>
+        <button class="cen-tab" type="button" role="tab" id="cen-t4" aria-controls="cen-p4" aria-selected="false" tabindex="-1">Dodatne usluge</button>
+      </div>
+    </div>
+    <div class="cen-grid">
+      <article class="cen-how">
+        <h3>Šta ulazi u cenu</h3>
+        <ol>
+          <li>
+            <b><i>1.</i>Kvadratura i obim posla</b>
+            <p>Koliko prostora se čisti i šta sve ulazi u jedan dolazak.</p>
+          </li>
+          <li>
+            <b><i>2.</i>Koliko često dolazimo</b>
+            <p>Jednokratno, nedeljno ili svakog dana. Od toga zavisi ponuda.</p>
+          </li>
+          <li>
+            <b><i>3.</i>Materijal i oprema</b>
+            <p>Radimo sa svojim potrošnim materijalom i opremom ili sa tvojim.</p>
+          </li>
+        </ol>
+        <p class="note">Tačnu cenu daje procena na licu mesta. Ona je besplatna i ne obavezuje te.</p>
       </article>
-      <article class="card price">
-        <h3>Stambene zgrade</h3>
-        <div class="amount"><b>od 800 din</b><span>po stanu</span></div>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Čišćenje jednom nedeljno</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nega zelenih površina</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Čišćenje prostora oko prilaza zgradi</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Poklon otirač i kanta za reklamni materijal</li>
-        </ul>
-        <p class="note">Cena zavisi od broja stanova u zgradi.</p>
-      </article>
-      <article class="card price">
-        <h3>Stanovi</h3>
-        <div class="amount"><b>1.400 din</b><span>po satu, redovno čišćenje</span></div>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Generalno čišćenje 1.600 din po satu</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Minimalno pet sati po dolasku</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dolazimo sa svojom opremom</li>
-        </ul>
-        <p class="note">Termin dogovaramo telefonom, na broj 060 56-222-57.</p>
-      </article>
+      <div class="cen-panels">
+      <div class="cen-panel" role="tabpanel" id="cen-p1" aria-labelledby="cen-t1">
+        <article class="cen-card top">
+          <h3>Redovno održavanje</h3>
+          <p>Za kancelarije, ordinacije, hotele i lokale koji se čiste po rasporedu.</p>
+          <div class="cen-price">
+            <b>od 1.200 din</b>
+            <span>zavisi od kvadrature</span>
+            <span class="cen-knob" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+          </div>
+          <ul class="cen-list">
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Svakodnevno ili nekoliko puta nedeljno</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Kancelarije, sanitarije i kuhinja</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Naš materijal i oprema u ceni</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Fiksan termin i isti tim</li>
+          </ul>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </article>
+        <article class="cen-card">
+          <h3>Povremeno i generalno</h3>
+          <p>Kad ti treba jednom ili s vremena na vreme, bez ugovora na duže.</p>
+          <div class="cen-price">
+            <b>po proceni</b>
+            <span>zavisi od obima posla</span>
+            <span class="cen-knob" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+          </div>
+          <ul class="cen-list">
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Jednokratni izlazak na teren</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Povremeno čišćenje sa jednim generalnim u paketu</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Generalno čišćenje celog prostora</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Termin po dogovoru</li>
+          </ul>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </article>
+      </div>
+      <div class="cen-panel" role="tabpanel" id="cen-p2" aria-labelledby="cen-t2" hidden>
+        <article class="cen-card top">
+          <h3>Nedeljno održavanje</h3>
+          <p>Za skupštine stanara kojima treba redovna higijena ulaza i prilaza.</p>
+          <div class="cen-price">
+            <b>od 800 din</b>
+            <span>po stanu</span>
+            <span class="cen-knob" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+          </div>
+          <ul class="cen-list">
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Čišćenje jednom nedeljno</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Nega zelenih površina</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Čišćenje prostora oko prilaza zgradi</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Poklon otirač i kanta za reklamni materijal</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Cena zavisi od broja stanova u zgradi</li>
+          </ul>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </article>
+        <article class="cen-card">
+          <h3>Upravljanje zgradom</h3>
+          <p>Kad hoćete da jedan tim pokriva i higijenu i upravljanje objektom.</p>
+          <div class="cen-price">
+            <b>po dogovoru</b>
+            <span>zavisi od veličine zgrade</span>
+            <span class="cen-knob" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+          </div>
+          <ul class="cen-list">
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Profesionalno upravljanje zgradom</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Održavanje zajedničkih prostora</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Garaže, podrumi i stepenište</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Čišćenje posle radova u zgradi</li>
+          </ul>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </article>
+      </div>
+      <div class="cen-panel" role="tabpanel" id="cen-p3" aria-labelledby="cen-t3" hidden>
+        <article class="cen-card top">
+          <h3>Redovno čišćenje</h3>
+          <p>Za stanove koji se održavaju stalno, naplata ide po satu.</p>
+          <div class="cen-price">
+            <b>1.400 din</b>
+            <span>po satu</span>
+            <span class="cen-knob" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+          </div>
+          <ul class="cen-list">
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Minimalno pet sati po dolasku</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Kupatilo, kuhinja i podovi</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Dolazimo sa svojom opremom</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Termin dogovaramo telefonom</li>
+          </ul>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </article>
+        <article class="cen-card">
+          <h3>Generalno čišćenje</h3>
+          <p>Posle useljenja, renoviranja ili kad treba ući u svaki detalj.</p>
+          <div class="cen-price">
+            <b>1.600 din</b>
+            <span>po satu</span>
+            <span class="cen-knob" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+          </div>
+          <ul class="cen-list">
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Dubinsko čišćenje celog stana</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Minimalno pet sati po dolasku</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Pranje prozora iznutra</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Dolazimo sa svojom opremom</li>
+          </ul>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </article>
+      </div>
+      <div class="cen-panel" role="tabpanel" id="cen-p4" aria-labelledby="cen-t4" hidden>
+        <article class="cen-card top">
+          <h3>Mašinsko i dubinsko pranje</h3>
+          <p>Podovi, nameštaj i staklo, kao jednokratan izlazak sa mašinama.</p>
+          <div class="cen-price">
+            <b>po proceni</b>
+            <span>po kvadratu ili po komadu</span>
+            <span class="cen-knob" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+          </div>
+          <ul class="cen-list">
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Mašinsko pranje podova</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Dubinsko pranje nameštaja i tepiha</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Pranje staklenih površina</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Poliranje i zaštita podova</li>
+          </ul>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </article>
+        <article class="cen-card">
+          <h3>Čišćenje posle radova</h3>
+          <p>Kad prostor treba predati spreman za useljenje, bez prašine i lepka.</p>
+          <div class="cen-price">
+            <b>po proceni</b>
+            <span>zavisi od stanja prostora</span>
+            <span class="cen-knob" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+          </div>
+          <ul class="cen-list">
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Građevinska prašina sa svih površina</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Ostaci maltera, gipsa i boje</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Nalepnice i folije sa stolarije</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg>Odvoz otpada</li>
+          </ul>
+          <a class="btn" href="#kontakt">Zatraži besplatnu procenu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        </article>
+      </div>
+      </div>
     </div>
   </div>
 </section>
@@ -730,10 +1242,72 @@ section{padding-top:96px;padding-bottom:96px}
   });
 })();
 
+// usluge: tabovi (jedna usluga je uvek otvorena, ne moze da se zatvori)
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.usl-tab'));
+  var panels=[].slice.call(document.querySelectorAll('.usl-panel'));
+  if(!tabs.length||tabs.length!==panels.length)return;
+  function otvori(i){
+    tabs.forEach(function(t,n){
+      var on=n===i;
+      t.setAttribute('aria-selected',on?'true':'false');
+      t.setAttribute('tabindex',on?'0':'-1');
+      panels[n].hidden=!on;
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){
+      otvori(i);
+      // na uskim ekranima je panel ispod spiska, pa ga dovedemo u vidno polje
+      if(window.matchMedia('(max-width:1100px)').matches&&panels[i].scrollIntoView){
+        panels[i].scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    });
+    t.addEventListener('keydown',function(e){
+      var j=-1;
+      if(e.key==='ArrowDown'||e.key==='ArrowRight')j=(i+1)%tabs.length;
+      if(e.key==='ArrowUp'||e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;
+      if(e.key==='Home')j=0;
+      if(e.key==='End')j=tabs.length-1;
+      if(j<0)return;
+      e.preventDefault();otvori(j);tabs[j].focus();
+    });
+  });
+  otvori(0);
+})();
+
+// cenovnik: kategorije (jedna je uvek otvorena)
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.cen-tab'));
+  var panels=[].slice.call(document.querySelectorAll('.cen-panel'));
+  if(!tabs.length||tabs.length!==panels.length)return;
+  function otvori(i){
+    tabs.forEach(function(t,n){
+      var on=n===i;
+      t.setAttribute('aria-selected',on?'true':'false');
+      t.setAttribute('tabindex',on?'0':'-1');
+      panels[n].hidden=!on;
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){otvori(i)});
+    t.addEventListener('keydown',function(e){
+      var j=-1;
+      if(e.key==='ArrowRight'||e.key==='ArrowDown')j=(i+1)%tabs.length;
+      if(e.key==='ArrowLeft'||e.key==='ArrowUp')j=(i-1+tabs.length)%tabs.length;
+      if(e.key==='Home')j=0;
+      if(e.key==='End')j=tabs.length-1;
+      if(j<0)return;
+      e.preventDefault();otvori(j);tabs[j].focus();
+    });
+  });
+  otvori(0);
+})();
+
 // suptilan reveal (sadržaj je vidljiv i bez JS-a)
 (function(){
   if(!('IntersectionObserver' in window))return;
-  var items=document.querySelectorAll('.card, .pain-card, .step, .why-item, .sec-head, .hero-copy, .contact-item');
+  var items=document.querySelectorAll('.card, .pain-card, .step, .sec-head, .hero-copy, .contact-item');
   items.forEach(function(el){el.classList.add('rv','pre')});
   var io=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
