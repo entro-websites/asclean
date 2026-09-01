@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asclean - profesionalno čišćenje poslovnih i stambenih prostora u Beogradu</title>
+<meta name="description" content="Asclean održava higijenu poslovnih prostora, zgrada i stanova u Beogradu od 2015. godine. Besplatna procena posla, cene od 800 dinara. Pozovi 060/56-222-57.">
+<meta name="theme-color" content="#004871">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ---------- tokeni ---------- */
+:root{
+  --blue-50:#eef7fc;  --blue-100:#d4eaf7; --blue-200:#a8d5ef; --blue-300:#72bae5;
+  --blue-400:#3a9cd6; --blue-500:#0f83c4; --blue-600:#0073b7; --blue-700:#005c93;
+  --blue-800:#004871; --blue-900:#02334f; --blue-950:#011f30;
+  --ink:#0d1a22;
+  --mist:#f4f9fc;
+  --white:#fff;
+  --line:#dfecf5;
+  --container:1280px;
+  --r-btn:12px;
+  --r-md:12px; --r-lg:20px; --r-xl:28px;
+  --sh-sm:0 4px 12px rgba(2,51,79,.06);
+  --sh-md:0 12px 28px rgba(2,51,79,.08);
+  --sh-lg:0 24px 48px rgba(2,51,79,.12);
+  --glow:radial-gradient(closest-side,rgba(58,156,214,.22),rgba(58,156,214,0));
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Open Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.6;color:#3d5a6c;background:var(--white);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* ---------- wrapper ---------- */
+.container{width:100%;max-width:var(--container);margin-left:auto;margin-right:auto;padding-left:24px;padding-right:24px}
+
+/* ---------- tipografija ---------- */
+h1,h2,h3,h4{color:var(--ink);font-weight:800;letter-spacing:-.02em;line-height:1.12}
+h1{font-size:56px;line-height:1.08}
+h2{font-size:40px}
+h3{font-size:20px;font-weight:700;letter-spacing:-.01em;line-height:1.28}
+h4{font-size:16px;font-weight:700}
+.acc{color:var(--blue-600);font-weight:300}
+.lead{font-size:20px;line-height:1.6;color:#48677a;max-width:600px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-600);
+}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--blue-500);flex:none}
+.sec-head{max-width:760px;margin-left:auto;margin-right:auto;margin-bottom:64px;text-align:center;display:flex;flex-direction:column;gap:20px;align-items:center}
+.sec-head .lead{margin-left:auto;margin-right:auto}
+p{max-width:65ch}
+
+/* ---------- dugme (jedan stil na celom sajtu) ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  padding-top:16px;padding-bottom:16px;padding-left:28px;padding-right:28px;
+  border:0;border-radius:var(--r-btn);background:var(--blue-600);color:var(--white);
+  font-family:inherit;font-size:16px;font-weight:700;line-height:1;cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,115,183,.24);
+  transition:background .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+.btn:hover{background:var(--blue-700);transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,115,183,.32)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-sm{padding-top:12px;padding-bottom:12px;padding-left:20px;padding-right:20px}
+
+/* ---------- ikonice ---------- */
+.tile{width:56px;height:56px;border-radius:var(--r-md);background:var(--blue-50);display:flex;align-items:center;justify-content:center;flex:none}
+.tile svg{width:28px;height:28px;color:var(--blue-600)}
+.tile.dark{background:rgba(255,255,255,.08)}
+.tile.dark svg{color:var(--blue-300)}
+
+/* ---------- kartice ---------- */
+.card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding-top:32px;padding-bottom:32px;padding-left:32px;padding-right:32px;
+  display:flex;flex-direction:column;gap:16px;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+.card p{font-size:16px}
+
+/* ---------- sekcije ---------- */
+section{padding-top:96px;padding-bottom:96px}
+.bg-mist{background:var(--mist)}
+
+/* ---------- traka ---------- */
+.topbar{background:var(--blue-900);color:var(--blue-100);font-size:12px}
+.topbar .container{display:flex;align-items:center;justify-content:center;gap:12px 32px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px;text-align:center}
+.topbar span{display:inline-flex;align-items:center;gap:8px}
+.topbar svg{width:16px;height:16px;color:var(--blue-300);flex:none}
+.topbar a:hover{color:var(--white)}
+
+/* ---------- header ---------- */
+.site-head{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.site-head .container{display:flex;align-items:center;justify-content:space-between;gap:32px;padding-top:16px;padding-bottom:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:56px;width:auto}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{font-size:16px;font-weight:600;color:#3d5a6c;transition:color .2s ease}
+.nav a:hover{color:var(--blue-600)}
+.burger{display:none;width:48px;height:48px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:var(--r-btn);background:var(--white);cursor:pointer}
+.burger svg{width:24px;height:24px;color:var(--ink)}
+.burger .ico-x{display:none}
+.burger[aria-expanded="true"] .ico-x{display:block}
+.burger[aria-expanded="true"] .ico-menu{display:none}
+.mobile-nav{display:none;border-top:1px solid var(--line);background:var(--white)}
+.mobile-nav.open{display:block}
+.mobile-nav .container{display:flex;flex-direction:column;gap:4px;padding-top:16px;padding-bottom:24px}
+.mobile-nav a{padding-top:12px;padding-bottom:12px;font-size:16px;font-weight:600;color:#3d5a6c}
+.mobile-nav .btn{margin-top:12px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;padding-top:96px;padding-bottom:96px;background:var(--mist)}
+.hero::before{content:"";position:absolute;top:-160px;right:-120px;width:640px;height:640px;background:var(--glow);pointer-events:none}
+.hero .container{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:24px;align-items:flex-start}
+.hero-copy .lead{max-width:520px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:8px}
+.fact{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:var(--blue-800)}
+.fact svg{width:20px;height:20px;color:var(--blue-500);flex:none}
+.hero-media{position:relative}
+.hero-media img{width:100%;height:520px;object-fit:cover;border-radius:var(--r-xl);box-shadow:var(--sh-lg)}
+.hero-badge{
+  position:absolute;left:-24px;bottom:32px;background:var(--white);border-radius:var(--r-lg);
+  box-shadow:var(--sh-md);padding-top:20px;padding-bottom:20px;padding-left:24px;padding-right:24px;
+  display:flex;align-items:center;gap:16px;max-width:280px;
+}
+.hero-badge .num{font-size:32px;font-weight:800;color:var(--blue-600);line-height:1}
+.hero-badge p{font-size:16px;margin:0}
+
+/* ---------- bol ---------- */
+.pain .container{max-width:800px;text-align:center;display:flex;flex-direction:column;gap:24px;align-items:center}
+.pain h2{font-size:32px;line-height:1.3;font-weight:600;color:var(--ink)}
+.pain h2 strong{font-weight:800;color:var(--blue-700)}
+
+/* ---------- mreže ---------- */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+
+/* ---------- zašto ---------- */
+.why{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.why-media{position:relative;border-radius:var(--r-xl);padding-top:32px;padding-bottom:32px;padding-left:32px;padding-right:32px;display:flex;align-items:center;justify-content:center}
+.why-media::before{content:"";position:absolute;left:0;right:0;top:0;bottom:0;background:var(--glow);pointer-events:none}
+.why-media img{position:relative;width:100%;height:376px;object-fit:contain}
+.why-list{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.why-item{display:flex;flex-direction:column;gap:12px}
+.why-item svg{width:28px;height:28px;color:var(--blue-600)}
+.why-item p{font-size:16px}
+
+/* ---------- cenovnik ---------- */
+.price{display:flex;flex-direction:column;gap:20px}
+.price .amount{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;color:var(--ink)}
+.price .amount b{font-size:36px;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+.price .amount span{font-size:12px;font-weight:600;color:#68849a;width:100%}
+.price ul{display:flex;flex-direction:column;gap:12px}
+.price li{display:flex;align-items:flex-start;gap:12px;font-size:16px}
+.price li svg{width:20px;height:20px;color:var(--blue-500);flex:none;margin-top:4px}
+.price .note{font-size:12px;color:#68849a;border-top:1px solid var(--line);padding-top:16px;margin-top:auto}
+
+/* ---------- koraci ---------- */
+.step{display:flex;flex-direction:column;gap:16px}
+.step .n{
+  width:48px;height:48px;border-radius:var(--r-md);background:var(--blue-600);color:var(--white);
+  display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;flex:none;
+}
+.step p{font-size:16px}
+
+/* ---------- o nama ---------- */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-copy{display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.about-media{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-md)}
+.about-media img{width:100%;height:440px;object-fit:cover;background:var(--blue-50)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px;width:100%}
+.stat b{display:block;font-size:32px;font-weight:800;color:var(--blue-600);line-height:1.2}
+.stat span{font-size:12px;color:#68849a}
+
+/* ---------- tamni CTA ---------- */
+.cta-dark{background:var(--blue-900);position:relative;overflow:hidden}
+.cta-dark::before{content:"";position:absolute;top:-200px;left:50%;width:720px;height:720px;transform:translateX(-50%);background:var(--glow);pointer-events:none}
+.cta-dark .container{position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;gap:24px;max-width:760px}
+.cta-dark h2{color:var(--white)}
+.cta-dark p{color:var(--blue-100);font-size:20px}
+
+/* ---------- kontakt ---------- */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.contact-copy{display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.contact-list{display:flex;flex-direction:column;gap:16px;width:100%}
+.contact-item{
+  display:flex;align-items:center;gap:20px;background:var(--white);border:1px solid var(--line);
+  border-radius:var(--r-lg);padding-top:24px;padding-bottom:24px;padding-left:24px;padding-right:24px;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+.contact-item:hover{border-color:var(--blue-200);box-shadow:var(--sh-sm)}
+.contact-item span{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#68849a}
+.contact-item b{font-size:20px;font-weight:700;color:var(--ink);word-break:break-word}
+
+/* ---------- futer ---------- */
+.site-foot{background:var(--blue-950);color:var(--blue-200);padding-top:64px;padding-bottom:32px;font-size:16px}
+.foot-top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
+.site-foot .brand img{height:56px;background:var(--white);border-radius:var(--r-md);padding:8px}
+.site-foot h4{color:var(--white);margin-bottom:16px}
+.site-foot ul{display:flex;flex-direction:column;gap:12px}
+.site-foot a:hover{color:var(--white)}
+.site-foot p{max-width:44ch}
+.foot-bot{padding-top:24px;font-size:12px;color:#6f93ab}
+
+/* ---------- reveal ---------- */
+.rv{transition:transform .5s ease,opacity .5s ease}
+.rv.pre{opacity:.999;transform:translateY(12px)}
+.rv.in{transform:translateY(0)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  h1{font-size:44px}
+  h2{font-size:32px}
+  .hero .container,.why,.about,.contact{grid-template-columns:1fr;gap:48px}
+  .hero-media img,.about-media img{height:400px}
+  .why-media img{height:320px}
+  .hero-badge{left:24px}
+  .grid-3{grid-template-columns:repeat(2,1fr)}
+  .foot-top{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media (max-width:991px){
+  .nav,.head-cta{display:none}
+  .burger{display:flex}
+}
+@media (max-width:768px){
+  section,.hero{padding-top:64px;padding-bottom:64px}
+  .container{padding-left:20px;padding-right:20px}
+  h1{font-size:36px}
+  h2{font-size:28px}
+  h3{font-size:20px}
+  .lead{font-size:20px}
+  .pain h2{font-size:24px}
+  .grid-3,.grid-2,.why-list,.stats,.foot-top{grid-template-columns:1fr}
+  .sec-head{margin-bottom:40px}
+  .card{padding-top:24px;padding-bottom:24px;padding-left:24px;padding-right:24px}
+  .hero-media img,.about-media img{height:280px}
+  .why-media img{height:220px}
+  .why-media{padding-top:24px;padding-bottom:24px;padding-left:24px;padding-right:24px}
+  .hero-badge{position:static;max-width:none;margin-top:16px}
+  .btn{width:100%}
+  .price .amount b{font-size:32px}
+}
+</style>
+</head>
+<body>
+
+<!-- traka -->
+<div class="topbar">
+  <div class="container">
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+      <a href="tel:+38160562225">060 56-222-57</a>
+    </span>
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+      <a href="mailto:office@asclean.rs">office@asclean.rs</a>
+    </span>
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Marička 20/8, 11090 Beograd
+    </span>
+  </div>
+</div>
+
+<!-- header -->
+<header class="site-head">
+  <div class="container">
+    <a class="brand" href="#top" aria-label="Asclean početna">
+      <img src="assets/logo.png" alt="Asclean logo">
+    </a>
+    <nav class="nav" aria-label="Glavna navigacija">
+      <a href="#usluge">Usluge</a>
+      <a href="#zasto">Zašto Asclean</a>
+      <a href="#cenovnik">Cenovnik</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="head-cta">
+      <a class="btn btn-sm" href="#kontakt">Zatraži besplatnu procenu</a>
+    </div>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Otvori meni">
+      <svg class="ico-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="ico-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="container">
+      <a href="#usluge">Usluge</a>
+      <a href="#zasto">Zašto Asclean</a>
+      <a href="#cenovnik">Cenovnik</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="btn" href="#kontakt">Zatraži besplatnu procenu</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-copy">
+      <span class="eyebrow">Agencija za čišćenje, Beograd</span>
+      <h1>Tvoj prostor čist <span class="acc">svih 365 dana u godini</span></h1>
+      <p class="lead">Asclean održava higijenu kancelarija, zgrada, hotela i stanova u Beogradu od 2015. godine. Dolazimo sa svojom opremom i materijalom, po dogovorenom rasporedu.</p>
+      <a class="btn" href="#kontakt">
+        Zatraži besplatnu procenu
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </a>
+      <div class="hero-facts">
+        <span class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          Procena posla je besplatna
+        </span>
+        <span class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          Bez dodatnih troškova
+        </span>
+        <span class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          Fleksibilno radno vreme
+        </span>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="assets/cleaning-services-09.jpg" alt="Krpa u plavoj rukavici briše staklenu površinu sa penom">
+      <div class="hero-badge">
+        <span class="num">2015</span>
+        <p>Godina od koje čistimo objekte u Beogradu, od jednog zaposlenog do celog tima.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- bol -->
+<section class="pain">
+  <div class="container">
+    <span class="eyebrow">Zašto se ovo tebe tiče</span>
+    <h2>Čistoća prostora je posao koji se nikad ne završi. <strong>Zato ga prepusti nekome ko dolazi po rasporedu.</strong></h2>
+    <p class="lead">Kancelarija se zaprlja svakog dana, ulaz u zgradu posle svake kiše, stan posle svakog useljenja. Ako to rešavaš usput, uvek kasni. Mi dođemo u dogovoreno vreme, sa svojom opremom, i ti se time više ne baviš.</p>
+  </div>
+</section>
+
+<!-- usluge -->
+<section id="usluge" class="bg-mist">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">Usluge</span>
+      <h2>Šta sve <span class="acc">čistimo</span></h2>
+      <p class="lead">Radimo povremeno ili redovno čišćenje, sa našim potrošnim materijalom i opremom ili bez njega. Kako ti odgovara.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 10h.01M15 10h.01"/></svg></span>
+        <h3>Poslovni prostori</h3>
+        <p>Kancelarije, hoteli, restorani, zubne ordinacije. Održavamo higijenu tako da tvoji zaposleni i gosti to primete odmah.</p>
+      </article>
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V4a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v17"/><path d="M15 9h4a1 1 0 0 1 1 1v11"/><path d="M2 21h20"/><path d="M8 7h3M8 11h3M8 15h3"/></svg></span>
+        <h3>Stambene zgrade</h3>
+        <p>Čišćenje ulaza i stepeništa, nega zelenih površina i prostora oko prilaza. Radimo i profesionalno upravljanje zgradama.</p>
+      </article>
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-8h6v8"/></svg></span>
+        <h3>Stanovi</h3>
+        <p>Redovno ili generalno čišćenje stana, po satu. Dolazimo minimalno pet sati, dovoljno da se obiđe ceo stan.</p>
+      </article>
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/><path d="M4 13h16"/><path d="M12 4v16"/></svg></span>
+        <h3>Pranje staklenih površina</h3>
+        <p>Izlozi, staklene fasade i prozori, i tamo gde se teško stiže. Voda ostaje unutra, staklo bez tragova.</p>
+      </article>
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg></span>
+        <h3>Mašinsko pranje poda</h3>
+        <p>Mermer, parket i industrijski podovi. Mašinom se skida ono što krpa ne može, bez oštećenja površine.</p>
+      </article>
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18v-6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6"/><path d="M6 18v2M18 18v2"/><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/><path d="M2 18h20"/></svg></span>
+        <h3>Dubinsko pranje nameštaja</h3>
+        <p>Garniture, tepisi i itisoni. Prljavština izlazi iz vlakana, tkanina se suši istog dana.</p>
+      </article>
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M5 20V10l7-6 7 6v10"/><path d="M10 20v-5h4v5"/><path d="m14 3 5 4"/></svg></span>
+        <h3>Čišćenje posle radova</h3>
+        <p>Prašina od gipsa, ostaci maltera i boje, lepljive nalepnice na stolariji. Prostor spreman za useljenje.</p>
+      </article>
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18"/><path d="M5 12V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5"/><path d="M4 12v7h16v-7"/><path d="M9 19v-4h6v4"/></svg></span>
+        <h3>Garaže i podrumi</h3>
+        <p>Zajednički prostori koje niko ne stigne da očisti. Uklanjamo naslage, prašinu i mrlje od ulja.</p>
+      </article>
+      <article class="card">
+        <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/><path d="M8 15h3"/></svg></span>
+        <h3>Čišćenje po pozivu</h3>
+        <p>Jednokratno, nedeljno ili dnevno održavanje. Raspored praviš ti, mi se držimo dogovora.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- zašto -->
+<section id="zasto">
+  <div class="container">
+    <div class="why">
+      <div class="why-media">
+        <img src="assets/14.jpg" alt="Kap vode koja pada u čistu vodu">
+      </div>
+      <div>
+        <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:40px">
+          <span class="eyebrow">Zašto Asclean</span>
+          <h2>Poverenje se gradi <span class="acc">na dolasku na vreme</span></h2>
+          <p class="lead">Klijenti nas preporučuju zbog toga kako radimo, ne zbog toga šta pišemo o sebi.</p>
+        </div>
+        <div class="why-list">
+          <div class="why-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <h4>Brza i efektivna usluga</h4>
+            <p>Javimo se na poziv, izađemo na procenu i dogovorimo termin bez odugovlačenja.</p>
+          </div>
+          <div class="why-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
+            <h4>Zagarantovan kvalitet</h4>
+            <p>Ako nešto nije urađeno kako smo se dogovorili, vraćamo se i ispravljamo.</p>
+          </div>
+          <div class="why-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9a2 2 0 0 1 2-2h5l2-3h5a2 2 0 0 1 2 2v13z"/><circle cx="9" cy="15" r="2"/><path d="M15 12h3"/></svg>
+            <h4>Nove mašine</h4>
+            <p>Radimo profesionalnom opremom za mašinsko pranje podova i dubinsko pranje nameštaja.</p>
+          </div>
+          <div class="why-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+            <h4>Obučeni radnici</h4>
+            <p>Isti ljudi dolaze kod tebe, znaju prostor i znaju šta se gde koristi.</p>
+          </div>
+          <div class="why-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+            <h4>Fleksibilno radno vreme</h4>
+            <p>Radimo pre otvaranja, posle smene ili vikendom, kad ne smetamo tvom poslu.</p>
+          </div>
+          <div class="why-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9h6l-6 6h6"/></svg>
+            <h4>Bez dodatnih troškova</h4>
+            <p>Cenu dogovorimo pre početka. Materijal i oprema ulaze u nju, bez naknadnih stavki.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- cenovnik -->
+<section id="cenovnik" class="bg-mist">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">Cenovnik</span>
+      <h2>Cena zavisi od prostora, <span class="acc">a znaš je unapred</span></h2>
+      <p class="lead">Ovo su početne cene. Tačnu ponudu dajemo posle procene, koja te ne košta ništa.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card price">
+        <h3>Poslovni prostor</h3>
+        <div class="amount"><b>od 1.200 din</b><span>zavisi od kvadrature</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Svakodnevno čišćenje</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Povremeno čišćenje sa jednim generalnim u paketu</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Generalno čišćenje</li>
+        </ul>
+        <p class="note">Za tačnu ponudu pozovi nas i dogovorimo besplatnu procenu posla.</p>
+      </article>
+      <article class="card price">
+        <h3>Stambene zgrade</h3>
+        <div class="amount"><b>od 800 din</b><span>po stanu</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Čišćenje jednom nedeljno</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nega zelenih površina</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Čišćenje prostora oko prilaza zgradi</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Poklon otirač i kanta za reklamni materijal</li>
+        </ul>
+        <p class="note">Cena zavisi od broja stanova u zgradi.</p>
+      </article>
+      <article class="card price">
+        <h3>Stanovi</h3>
+        <div class="amount"><b>1.400 din</b><span>po satu, redovno čišćenje</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Generalno čišćenje 1.600 din po satu</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Minimalno pet sati po dolasku</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dolazimo sa svojom opremom</li>
+        </ul>
+        <p class="note">Termin dogovaramo telefonom, na broj 060 56-222-57.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- koraci -->
+<section>
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">Kako radimo</span>
+      <h2>Od poziva do <span class="acc">čistog prostora</span></h2>
+    </div>
+    <div class="grid-3">
+      <div class="step">
+        <span class="n">1</span>
+        <h3>Pozoveš nas</h3>
+        <p>Kažeš o kakvom je prostoru reč, koliko ima kvadrata i koliko često ti treba čišćenje.</p>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <h3>Izađemo na procenu</h3>
+        <p>Vidimo prostor, dogovorimo obim posla i damo cenu. Procena je besplatna i ničim te ne obavezuje.</p>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <h3>Dolazimo po rasporedu</h3>
+        <p>Ekipa dolazi u dogovoreno vreme, sa opremom i materijalom. Ti samo otvoriš vrata.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- o nama -->
+<section id="o-nama" class="bg-mist">
+  <div class="container">
+    <div class="about">
+      <div class="about-copy">
+        <span class="eyebrow">O nama</span>
+        <h2>Firma koja je počela <span class="acc">od jednog čoveka</span></h2>
+        <p>Asclean je osnovan u junu 2015. godine. Krenuli smo sa jednim zaposlenim, a danas radimo kao tim koji održava poslovne prostore, zgrade, hotele, stanove i javne površine u Beogradu.</p>
+        <p>Ono što nas je dovelo dovde je jednostavno: uradiš posao kako treba, klijent te preporuči dalje. Zato ne obećavamo ono što ne možemo da izvedemo i cenu kažemo pre nego što počnemo.</p>
+        <div class="stats">
+          <div class="stat"><b>2015.</b><span>Godina osnivanja</span></div>
+          <div class="stat"><b>365</b><span>Dana u godini radimo</span></div>
+          <div class="stat"><b>9</b><span>Vrsta usluga čišćenja</span></div>
+        </div>
+        <a class="btn" href="#kontakt">Dogovori procenu prostora</a>
+      </div>
+      <div class="about-media">
+        <div style="height:440px;display:flex;align-items:center;justify-content:center;background:#e7eff5;color:#68849a;font-size:16px;font-weight:700;letter-spacing:.12em;text-align:center;padding-left:24px;padding-right:24px">FOTOGRAFIJA TIMA ASCLEAN NA TERENU</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- tamni CTA -->
+<section class="cta-dark">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--blue-300)">Besplatna procena</span>
+    <h2>Reci nam kakav prostor imaš, <span class="acc" style="color:var(--blue-300)">mi kažemo cenu</span></h2>
+    <p>Procena posla ne košta ništa i ne obavezuje te. Posle nje znaš tačno koliko plaćaš i šta ulazi u tu cenu.</p>
+    <a class="btn" href="tel:+38160562225">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+      Pozovi 060 56-222-57
+    </a>
+  </div>
+</section>
+
+<!-- kontakt -->
+<section id="kontakt">
+  <div class="container">
+    <div class="contact">
+      <div class="contact-copy">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Zakaži procenu <span class="acc">svog prostora</span></h2>
+        <p class="lead">Pozovi ili pošalji mail sa adresom prostora i kvadraturom. Javimo se istog dana i dogovorimo izlazak.</p>
+        <a class="btn" href="mailto:office@asclean.rs?subject=Zahtev%20za%20procenu%20%C4%8Di%C5%A1%C4%87enja">Pošalji zahtev za procenu</a>
+      </div>
+      <div class="contact-list">
+        <a class="contact-item" href="tel:+38160562225">
+          <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div><span>Telefon</span><b>060 56-222-57</b></div>
+        </a>
+        <a class="contact-item" href="mailto:office@asclean.rs">
+          <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg></span>
+          <div><span>Email</span><b>office@asclean.rs</b></div>
+        </a>
+        <div class="contact-item">
+          <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><span>Adresa</span><b>Marička 20/8, 11090 Beograd</b></div>
+        </div>
+        <div class="contact-item">
+          <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><span>Radno vreme</span><b>Fleksibilno, dogovaramo termin po tvom rasporedu</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- futer -->
+<footer class="site-foot">
+  <div class="container">
+    <div class="foot-top">
+      <div>
+        <a class="brand" href="#top" aria-label="Asclean početna"><img src="assets/logo.png" alt="Asclean logo"></a>
+        <p style="margin-top:20px">Profesionalno održavanje higijene poslovnih i stambenih objekata u Beogradu, od 2015. godine.</p>
+      </div>
+      <div>
+        <h4>Usluge</h4>
+        <ul>
+          <li><a href="#usluge">Čišćenje poslovnih prostora</a></li>
+          <li><a href="#usluge">Čišćenje zgrada</a></li>
+          <li><a href="#usluge">Čišćenje stanova</a></li>
+          <li><a href="#usluge">Mašinsko pranje poda</a></li>
+          <li><a href="#usluge">Pranje staklenih površina</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+38160562225">060 56-222-57</a></li>
+          <li><a href="mailto:office@asclean.rs">office@asclean.rs</a></li>
+          <li>Marička 20/8, 11090 Beograd</li>
+          <li><a href="#cenovnik">Cenovnik</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">© 2026 Asclean. Sva prava zadržana.</div>
+  </div>
+</footer>
+
+<script>
+// hamburger
+(function(){
+  var burger=document.querySelector('.burger');
+  var menu=document.getElementById('mobile-nav');
+  if(!burger||!menu)return;
+  burger.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+    burger.setAttribute('aria-label',open?'Zatvori meni':'Otvori meni');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      burger.setAttribute('aria-label','Otvori meni');
+    });
+  });
+})();
+
+// suptilan reveal (sadržaj je vidljiv i bez JS-a)
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var items=document.querySelectorAll('.card, .step, .why-item, .sec-head, .hero-copy, .contact-item');
+  items.forEach(function(el){el.classList.add('rv','pre')});
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.remove('pre');e.target.classList.add('in');io.unobserve(e.target)}
+    })
+  },{rootMargin:'0px 0px -48px 0px'});
+  items.forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>
